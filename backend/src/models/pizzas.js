@@ -26,4 +26,4 @@ const pizzaSchema = new Schema({
     strict: false
 })
 
-export default model("pizzas", pizzaSchema)
+export default model("Pizzas", pizzaSchema)
