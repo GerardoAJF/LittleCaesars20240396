@@ -7,6 +7,8 @@ import customersRoutes from "./src/routes/customer.js"
 import registerCustomersRoutes from "./src/routes/registerCostumer.js"
 import adminsRoutes from "./src/routes/admins.js"
 import registerAdminRoutes from "./src/routes/registerAdmin.js"
+import loginCustomerRoutes from "./src/routes/loginCustomer.js"
+import logoutRoute from "./src/routes/logout.js"
 
 import cookieParser from "cookie-parser"
 
@@ -25,5 +27,7 @@ app.use("/api/customers", customersRoutes)
 app.use("/api/registerCustomer", registerCustomersRoutes)
 app.use("/api/admins", adminsRoutes)
 app.use("/api/registerAdmin", registerAdminRoutes)
+app.use("/api/loginCustomers", loginCustomerRoutes)
+app.use("/api/logout", logoutRoute)
 
 export default app

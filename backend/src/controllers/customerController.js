@@ -52,7 +52,7 @@ customersController.updateCustomer = async (req, res) => {
 // DELETE
 customersController.deleteCustomer = async (req, res) => {
     try {
-        const deletedCustomer = customersModel.findByIdAndDelete(req.params.id);
+        const deletedCustomer = await customersModel.findByIdAndDelete(req.params.id);
 
         if (!deletedCustomer) {
             return res.status(404).json({message: "Customer not found"})
