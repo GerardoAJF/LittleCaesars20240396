@@ -11,8 +11,15 @@ import loginCustomerRoutes from "./src/routes/loginCustomer.js"
 import logoutRoute from "./src/routes/logout.js"
 
 import cookieParser from "cookie-parser"
+import cors from "cors"
 
 const app = express()
+
+app.use(cors({
+    origin: ["http://localhost:5173", "http://localhost:5174"],
+    // permitir el envío de cookies y credenciales
+    credentials: true
+}))
 
 app.use(cookieParser())
 
