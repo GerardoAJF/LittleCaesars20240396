@@ -38,5 +38,6 @@ app.use("/api/registerAdmin", registerAdminRoutes)
 app.use("/api/loginCustomers", loginCustomerRoutes)
 app.use("/api/logout", logoutRoute)
 app.use("/api/recoveryPassword", recoveryPasswordRoutes)
+app.use("/api/providers")
 
 export default app
