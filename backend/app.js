@@ -11,6 +11,7 @@ import loginCustomerRoutes from "./src/routes/loginCustomer.js"
 import logoutRoute from "./src/routes/logout.js"
 import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
 import providerRoutes from "./src/routes/provider.js"
+import cartRoutes from "./src/routes/cart.js"
 
 import cookieParser from "cookie-parser"
 import cors from "cors"
@@ -40,5 +41,6 @@ app.use("/api/loginCustomers", loginCustomerRoutes)
 app.use("/api/logout", logoutRoute)
 app.use("/api/recoveryPassword", recoveryPasswordRoutes)
 app.use("/api/providers", providerRoutes)
+app.use("/api/cart", cartRoutes)
 
 export default app
