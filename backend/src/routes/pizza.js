@@ -1,11 +1,12 @@
 import express from "express"
 import pizzasController from "../controllers/pizzasController.js"
+import { validateAuthCookie } from "../middlewares/authMiddleware.js"
 
 const router = express.Router()
 
 router.route("/")
-.get(pizzasController.getPizzas)
-.post(pizzasController.insertPizza)
+.get(validateAuthCookie(["customer", "admin"]), pizzasController.getPizzas)
+.post(validateAuthCookie(["admin"]), pizzasController.insertPizza)
 
 router.route("/low-stock")
 .get(pizzasController.getLowStock)

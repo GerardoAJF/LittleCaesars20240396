@@ -14,6 +14,8 @@ import providerRoutes from "./src/routes/provider.js"
 import cartRoutes from "./src/routes/cart.js"
 import wompiRoutes from "./src/routes/wompi.js"
 import deliveriesRputes from "./src/routes/delivery.js"
+import loginAdminRoutes from "./src/routes/loginAdmin.js"
+import { validateAuthCookie } from "./src/middlewares/authMiddleware.js"
 
 import cookieParser from "cookie-parser"
 import cors from "cors"
@@ -33,13 +35,14 @@ app.use(express.json())
 
 app.use("/api/pizzas", pizzasRoutes)
 app.use("/api/branches", branchesRoutes)
-app.use("/api/employees", employeesRoutes)
+app.use("/api/employees", validateAuthCookie(["admin"]), employeesRoutes)
 app.use("/api/reviews", reviewsRoutes)
 app.use("/api/customers", customersRoutes)
 app.use("/api/registerCustomer", registerCustomersRoutes)
 app.use("/api/admins", adminsRoutes)
 app.use("/api/registerAdmin", registerAdminRoutes)
 app.use("/api/loginCustomers", loginCustomerRoutes)
+app.use("/api/loginAdmin", loginAdminRoutes)
 app.use("/api/logout", logoutRoute)
 app.use("/api/recoveryPassword", recoveryPasswordRoutes)
 app.use("/api/providers", providerRoutes)
